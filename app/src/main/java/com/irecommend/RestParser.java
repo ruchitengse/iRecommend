@@ -1,6 +1,5 @@
 package com.irecommend;
 
-import android.os.AsyncTask;
 import android.util.Log;
 
 import org.json.JSONObject;
@@ -14,16 +13,10 @@ import java.util.Scanner;
 /**
  * Created by Ruchi.U on 4/16/2016.
  */
-public class RestParser extends AsyncTask<String, Integer, JSONObject> {
+public abstract class RestParser {
 
-    private String getResponseText(InputStream inputStream){
-        return new Scanner(inputStream).useDelimiter("\\A").next();
-    }
+    public static JSONObject getResponseForUrl(String url, String requestMethod) {
 
-    @Override
-    protected JSONObject doInBackground(String... params) {
-        String url = params[0];
-        String requestMethod  = params[1];
         InputStream inputStream = null;
         HttpURLConnection urlConnection = null;
         try {
@@ -31,20 +24,26 @@ public class RestParser extends AsyncTask<String, Integer, JSONObject> {
             urlConnection = (HttpURLConnection) urlToOpen.openConnection();
 
             /** Set Request Properties **/
-            urlConnection.setRequestProperty("Content-Type", "application/json");
-            urlConnection.setRequestProperty("Accept", "application/json");
+            urlConnection.setRequestProperty("Content-Type","application/json");
+            urlConnection.setRequestProperty("Accept","application/json");
 
             /** Set Method **/
             urlConnection.setRequestMethod(requestMethod);
             int statusCode = urlConnection.getResponseCode();
 
-            if (statusCode == 200) {
+            if(statusCode == 200){
                 inputStream = new BufferedInputStream(urlConnection.getInputStream());
                 return new JSONObject(getResponseText(inputStream));
             }
-        } catch (Exception e) {
+
+
+        } catch (Exception e){
             Log.d("getResponseForUrl", e.getLocalizedMessage());
         }
-        return new JSONObject();
+        return  null;
+    }
+
+    private static String getResponseText(InputStream inputStream){
+        return new Scanner(inputStream).useDelimiter("\\A").next();
     }
 }
