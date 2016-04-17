@@ -56,6 +56,7 @@ public class Home extends Activity {
                 r_button = (RadioButton) findViewById(selectedId);
                 category = r_button.getText().toString();
                 searchData = searchItem.getText().toString();
+                searchData = searchData.replaceAll(" ","+");
                 url = "https://www.tastekid.com/api/similar?q=" + searchData + "&k=219989-TasteKid-OY2OPP1B" + "&type=" + category+"&limit=10&info=1";
 
 

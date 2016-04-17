@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.irecommend.TvSeries">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/tvSeriesTitle"
+        android:minWidth="180dp"
+        android:minHeight="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvSeriesImg"
+        android:minWidth="150dp"
+        android:minHeight="180dp"
+        android:nestedScrollingEnabled="false"
+        android:layout_alignTop="@+id/tvSeriesTitle"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/tvSeriesRating"
+        android:layout_centerVertical="true"
+        android:layout_alignEnd="@+id/tvSeriesImg" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:src="@mipmap/imdb"
+        android:minHeight="40dp"
+        android:minWidth="60dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="moviePlot"
+        android:id="@+id/tvSeriesPlot"
+        android:minLines="5"
+        android:minHeight="60dp"
+        android:minWidth="200dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/tvSeriesLanguage"
+        android:minWidth="180dp"
+        android:minHeight="50dp"
+        android:layout_alignBottom="@+id/tvSeriesImg"
+        android:layout_alignStart="@+id/tvSeriesTitle"
+        android:layout_marginBottom="56dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/tvSeriesRated"
+        android:minWidth="180dp"
+        android:minHeight="50dp"
+        android:layout_alignBottom="@+id/tvSeriesImg"
+        android:layout_alignStart="@+id/tvSeriesLanguage" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/tvSeriesGenre"
+        android:minWidth="180dp"
+        android:minHeight="50dp"
+        android:layout_below="@+id/tvSeriesLanguage"
+        android:layout_alignStart="@+id/tvSeriesRated" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/tvSeriesStarring"
+        android:minWidth="180dp"
+        android:minHeight="40dp"
+        android:minLines="4"
+        android:layout_below="@+id/imageView2"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/tvSeriesReleased"
+        android:layout_alignTop="@+id/imageView2"
+        android:layout_above="@+id/tvSeriesStarring"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>
