@@ -63,7 +63,7 @@ public class Home extends AppCompatActivity {
                 //URI uri = URI.create(url);
                 //Toast.makeText(Home.this,
                   //      url, Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), Home.class);
+                Intent intent = new Intent(getApplicationContext(), Recommendation.class);
                 intent.putExtra("url",url);
                 startActivity(intent);
             }

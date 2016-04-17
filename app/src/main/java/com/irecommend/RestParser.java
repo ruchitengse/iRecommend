@@ -15,7 +15,7 @@ import java.util.Scanner;
  */
 public abstract class RestParser {
 
-    public JSONObject getResponseForUrl(String url, String requestMethod) {
+    public static JSONObject getResponseForUrl(String url, String requestMethod) {
 
         InputStream inputStream = null;
         HttpURLConnection urlConnection = null;
@@ -43,7 +43,7 @@ public abstract class RestParser {
         return  null;
     }
 
-    private String getResponseText(InputStream inputStream){
+    private static String getResponseText(InputStream inputStream){
         return new Scanner(inputStream).useDelimiter("\\A").next();
     }
 }
