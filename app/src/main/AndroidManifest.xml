@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.irecommend">
 
-
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -26,9 +25,18 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-        <activity android:name=".Home"/>
+
+        <activity android:name=".Home" />
         <activity android:name=".Recommendation" />
-        <activity android:name=".gameDescription"></activity>
+        <activity android:name=".gameDescription" />
+        <activity android:name=".DisplayBooks">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".display_author"></activity>
     </application>
 
 </manifest>
