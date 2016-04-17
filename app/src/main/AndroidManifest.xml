@@ -30,7 +30,12 @@
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
         <activity android:name=".Recommendation"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+<<<<<<< Updated upstream
       <activity android:name=".gameDescription"></activity>
+=======
+
+        <activity android:name=".gameDescription"></activity>
+>>>>>>> Stashed changes
         <activity android:name=".DisplayBooks"></activity>
         <activity android:name=".MovieDescription" />
         <activity android:name=".TvSeries"></activity>

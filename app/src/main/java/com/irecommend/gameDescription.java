@@ -1,5 +1,6 @@
 package com.irecommend;
 
+import android.app.Activity;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,7 +12,7 @@ import java.util.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class gameDescription extends AppCompatActivity implements  doEndProcess{
+public class gameDescription extends Activity implements  doEndProcess{
 
     GameResult g = new GameResult();
     Bundle extras;

@@ -1,5 +1,6 @@
 package com.irecommend;
 
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +12,7 @@ import android.widget.Toast;
 
 import org.json.JSONObject;
 
-public class TvSeries extends AppCompatActivity implements FetchTvData {
+public class TvSeries extends Activity implements FetchTvData {
 
     FetchTvSeries tvSeries = new FetchTvSeries();
     String url = "http://www.omdbapi.com/?y=&plot=short&r=json&type=series";

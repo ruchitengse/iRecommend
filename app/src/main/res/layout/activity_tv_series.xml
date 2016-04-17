@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/home">
+
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.irecommend.TvSeries">
+    >
 
     <TextView
         android:layout_width="wrap_content"
@@ -21,7 +26,7 @@
         android:textStyle="bold"
         android:textSize="14dp"
         android:textAlignment="textStart"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="#FFFFFF"
         android:minLines="2" />
 
     <TextView
@@ -34,7 +39,7 @@
         android:layout_toEndOf="@+id/tvSeriesView"
         android:layout_below="@+id/tvSeriesLanguage"
         android:textAlignment="textStart"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="#FFFFFF"
         android:textStyle="bold"
         android:textSize="14dp" />
 
@@ -52,7 +57,7 @@
         android:textStyle="bold"
         android:textSize="14dp"
         android:textAlignment="textStart"
-        android:textColor="@color/colorPrimaryDark" />
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -67,7 +72,7 @@
         android:textStyle="bold"
         android:textSize="14dp"
         android:textAlignment="textStart"
-        android:textColor="@color/colorPrimaryDark" />
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -81,7 +86,7 @@
         android:textStyle="bold"
         android:textSize="14dp"
         android:textAlignment="textStart"
-        android:textColor="@color/colorPrimaryDark" />
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -95,7 +100,7 @@
         android:textStyle="bold"
         android:textSize="14dp"
         android:textAlignment="textStart"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="#FFFFFF"
         android:minLines="2" />
 
     <TextView
@@ -112,7 +117,7 @@
         android:textStyle="bold"
         android:textSize="14dp"
         android:textAlignment="textStart"
-        android:textColor="@color/colorPrimaryDark" />
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -126,7 +131,7 @@
         android:textStyle="bold"
         android:textSize="14dp"
         android:textAlignment="textStart"
-        android:textColor="@color/colorPrimaryDark" />
+        android:textColor="#FFFFFF" />
 
     <WebView
         android:layout_width="wrap_content"
@@ -138,3 +143,4 @@
         android:layout_alignBottom="@+id/tvSeriesRated" />
 
 </RelativeLayout>
+</ScrollView>

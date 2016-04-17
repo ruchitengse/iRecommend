@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,6 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/home"
     tools:context="com.irecommend.MovieDescription">
 
     <TextView
@@ -19,7 +22,7 @@
         android:layout_alignTop="@+id/movieImg"
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/movieImg"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="#FFFFFF"
         android:textSize="18dp" />
 
     <ImageView
@@ -42,7 +45,7 @@
         android:layout_alignBottom="@+id/movieImg"
         android:minWidth="20dp"
         android:minHeight="35dp"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="#FFFFFF"
         android:textSize="18dp" />
 
     <TextView
@@ -56,7 +59,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="#FFFFFF"
         android:textSize="18dp" />
 
     <TextView
@@ -69,7 +72,7 @@
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/movieImg"
         android:layout_below="@+id/movieTitle"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="#FFFFFF"
         android:textSize="18dp" />
 
     <TextView
@@ -82,7 +85,7 @@
         android:layout_below="@+id/movieReleased"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="#FFFFFF"
         android:textSize="18dp" />
 
     <TextView
@@ -95,7 +98,7 @@
         android:layout_below="@+id/movieImg"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="#FFFFFF"
         android:textSize="18dp" />
 
     <TextView
@@ -110,7 +113,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/moviePlot"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="#FFFFFF"
         android:textSize="18dp" />
 
     <WebView
@@ -131,7 +134,7 @@
         android:layout_alignParentEnd="true"
         android:layout_above="@+id/imdbRating"
         android:layout_below="@+id/movieGenre"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="#FFFFFF"
         android:textSize="18dp" />
 
 </RelativeLayout>

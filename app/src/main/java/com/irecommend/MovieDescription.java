@@ -1,5 +1,6 @@
 package com.irecommend;
 
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -17,7 +18,7 @@ import org.w3c.dom.Text;
 
 import java.io.InputStream;
 
-public class MovieDescription extends AppCompatActivity implements MovieResponse {
+public class MovieDescription extends Activity implements MovieResponse {
 
     MovieData movieData = new MovieData();
     String urlForDescription = "http://www.omdbapi.com/?&y=&plot=short&r=json";

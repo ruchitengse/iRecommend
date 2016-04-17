@@ -1,5 +1,6 @@
 package com.irecommend;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -15,7 +16,8 @@ import android.widget.ListView;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class DisplayBooks extends AppCompatActivity implements bookResponse{
+public class DisplayBooks extends Activity implements bookResponse{
+
 
     Bundle extras;
     BooksInfo books = new BooksInfo();

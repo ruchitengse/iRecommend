@@ -82,7 +82,11 @@ public class Recommendation extends Activity {
                         Intent intent = new Intent(Recommendation.this, TvSeries.class);
                         intent.putExtra("recName", recName);
                         startActivity(intent);
+<<<<<<< Updated upstream
                     } else if(type.equals("Books")){
+=======
+                    } else if(type.equals("Books")){ //To Put
+>>>>>>> Stashed changes
                         Intent intent = new Intent(Recommendation.this, DisplayBooks.class);
                         intent.putExtra("recName", recName);
                         startActivity(intent);
@@ -109,6 +113,12 @@ public class Recommendation extends Activity {
                 //System.out.println(jsonRootObject);
                 JSONArray arrays = jsonRootObject.getJSONArray("Results");
                 lm = new String[arrays.length()];
+                if(arrays.length()==0){
+                    Toast.makeText(Recommendation.this,"Invalid Search", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(Recommendation.this,Home.class);
+                    startActivity(i);
+
+                }
                 //System.out.println(arrays);
             /*JSONObject si = similar.getJSONObject(1);
             System.out.println(si);
