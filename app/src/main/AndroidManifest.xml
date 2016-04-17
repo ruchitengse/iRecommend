@@ -35,16 +35,11 @@
         <activity android:name=".MovieDescription" />
         <activity android:name=".TvSeries"></activity>
 
-        <activity android:name=".Home" />
-        <activity android:name=".Recommendation" />
-        <activity android:name=".gameDescription" />
-        <activity android:name=".DisplayBooks">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
         <activity android:name=".display_author"></activity>
     </application>
 
