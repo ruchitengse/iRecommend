@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.irecommend">
 
-
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -30,21 +29,11 @@
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
         <activity android:name=".Recommendation"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
-<<<<<<< Updated upstream
-      <activity android:name=".gameDescription"></activity>
-=======
 
         <activity android:name=".gameDescription"></activity>
->>>>>>> Stashed changes
         <activity android:name=".DisplayBooks"></activity>
         <activity android:name=".MovieDescription" />
         <activity android:name=".TvSeries"></activity>
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         <activity android:name=".display_author"></activity>
     </application>
 

@@ -82,15 +82,11 @@ public class Recommendation extends Activity {
                         Intent intent = new Intent(Recommendation.this, TvSeries.class);
                         intent.putExtra("recName", recName);
                         startActivity(intent);
-<<<<<<< Updated upstream
-                    } else if(type.equals("Books")){
-=======
                     } else if(type.equals("Books")){ //To Put
->>>>>>> Stashed changes
                         Intent intent = new Intent(Recommendation.this, DisplayBooks.class);
                         intent.putExtra("recName", recName);
                         startActivity(intent);
-                    } else if(type.equals("Authors")) {
+                    } else if(type.equals("Authors")) { //To Put
                         Intent intent = new Intent(Recommendation.this, display_author.class);
                         intent.putExtra("recName", recName);
                         startActivity(intent);
