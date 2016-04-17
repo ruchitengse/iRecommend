@@ -21,7 +21,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 public class Recommendation extends AppCompatActivity {
     String uri = null;
-
+    String type = null;
     Bundle extras;
 
 
@@ -32,6 +32,7 @@ public class Recommendation extends AppCompatActivity {
         extras = getIntent().getExtras();
         if (extras != null) {
             uri = extras.getString("url");
+            type = extras.getString("type");
         }
         Call call = new Call();
         call.execute(uri);
@@ -103,4 +104,3 @@ public class Recommendation extends AppCompatActivity {
 
             return lm;
         }}}
-
