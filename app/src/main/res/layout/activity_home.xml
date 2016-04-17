@@ -34,20 +34,11 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Music"
-            android:id="@+id/music"
-            android:layout_below="@+id/searchItem"
-            android:layout_centerHorizontal="true"
-            android:checked="false" />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="Movies"
             android:id="@+id/movies"
             android:layout_below="@+id/music"
             android:layout_centerHorizontal="true"
-            android:checked="false" />
+            android:checked="true" />
 
         <RadioButton
             android:layout_width="wrap_content"

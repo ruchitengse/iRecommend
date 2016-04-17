@@ -16,18 +16,26 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class DisplayBooks extends AppCompatActivity implements bookResponse{
+
+    Bundle extras;
     BooksInfo books = new BooksInfo();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_books);
 
-
-        String ApiCall = "https://www.tastekid.com/api/similar?q=eclipse&k=219989-TasteKid-OY2OPP1B&type=books&limit=10&info=1";
+        extras = getIntent().getExtras();
+        String bookName = null;
+        if(extras != null){
+            bookName = extras.getString("recName");
+            bookName = bookName.replaceAll(" ", "+");
+        }
+        String ApiCall = "https://www.tastekid.com/api/similar?q="+bookName+"&k=219989-TasteKid-OY2OPP1B&type=books&limit=10&info=1";
 
         books.response=this;
         books.execute(ApiCall);
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_display_books);
 
     }
 

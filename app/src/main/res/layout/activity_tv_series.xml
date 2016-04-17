@@ -17,35 +17,26 @@
         android:minWidth="180dp"
         android:minHeight="50dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvSeriesImg"
-        android:minWidth="150dp"
-        android:minHeight="180dp"
-        android:nestedScrollingEnabled="false"
-        android:layout_alignTop="@+id/tvSeriesTitle"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentEnd="true"
+        android:textStyle="bold"
+        android:textSize="14dp"
+        android:textAlignment="textStart"
+        android:textColor="@color/colorPrimaryDark"
+        android:minLines="2" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/tvSeriesRating"
-        android:layout_centerVertical="true"
-        android:layout_alignEnd="@+id/tvSeriesImg" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView2"
-        android:src="@mipmap/imdb"
-        android:minHeight="40dp"
-        android:minWidth="60dp"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/tvSeriesGenre"
+        android:layout_toEndOf="@+id/tvSeriesView"
+        android:layout_below="@+id/tvSeriesLanguage"
+        android:textAlignment="textStart"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
+        android:textSize="14dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -55,8 +46,13 @@
         android:minLines="5"
         android:minHeight="60dp"
         android:minWidth="200dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/tvSeriesStarring"
+        android:textStyle="bold"
+        android:textSize="14dp"
+        android:textAlignment="textStart"
+        android:textColor="@color/colorPrimaryDark" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -65,9 +61,13 @@
         android:id="@+id/tvSeriesLanguage"
         android:minWidth="180dp"
         android:minHeight="50dp"
-        android:layout_alignBottom="@+id/tvSeriesImg"
-        android:layout_alignStart="@+id/tvSeriesTitle"
-        android:layout_marginBottom="56dp" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tvSeriesView"
+        android:layout_alignParentEnd="true"
+        android:textStyle="bold"
+        android:textSize="14dp"
+        android:textAlignment="textStart"
+        android:textColor="@color/colorPrimaryDark" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -76,8 +76,12 @@
         android:id="@+id/tvSeriesRated"
         android:minWidth="180dp"
         android:minHeight="50dp"
-        android:layout_alignBottom="@+id/tvSeriesImg"
-        android:layout_alignStart="@+id/tvSeriesLanguage" />
+        android:layout_below="@+id/tvSeriesGenre"
+        android:layout_alignParentEnd="true"
+        android:textStyle="bold"
+        android:textSize="14dp"
+        android:textAlignment="textStart"
+        android:textColor="@color/colorPrimaryDark" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -86,8 +90,13 @@
         android:id="@+id/tvSeriesGenre"
         android:minWidth="180dp"
         android:minHeight="50dp"
-        android:layout_below="@+id/tvSeriesLanguage"
-        android:layout_alignStart="@+id/tvSeriesRated" />
+        android:layout_alignEnd="@+id/tvSeriesRated"
+        android:layout_below="@+id/tvSeriesTitle"
+        android:textStyle="bold"
+        android:textSize="14dp"
+        android:textAlignment="textStart"
+        android:textColor="@color/colorPrimaryDark"
+        android:minLines="2" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -97,16 +106,35 @@
         android:minWidth="180dp"
         android:minHeight="40dp"
         android:minLines="4"
-        android:layout_below="@+id/imageView2"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="30dp" />
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/tvSeriesLanguage"
+        android:textStyle="bold"
+        android:textSize="14dp"
+        android:textAlignment="textStart"
+        android:textColor="@color/colorPrimaryDark" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/tvSeriesReleased"
-        android:layout_alignTop="@+id/imageView2"
-        android:layout_above="@+id/tvSeriesStarring"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tvSeriesPlot"
+        android:layout_alignEnd="@+id/tvSeriesPlot"
+        android:layout_alignParentBottom="true"
+        android:textStyle="bold"
+        android:textSize="14dp"
+        android:textAlignment="textStart"
+        android:textColor="@color/colorPrimaryDark" />
+
+    <WebView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvSeriesView"
+        android:layout_alignTop="@+id/tvSeriesTitle"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/tvSeriesTitle"
+        android:layout_alignBottom="@+id/tvSeriesRated" />
+
 </RelativeLayout>

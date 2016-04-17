@@ -28,7 +28,7 @@
         <activity android:name=".Home"/>
         <activity android:name=".Recommendation" />
         <activity android:name=".gameDescription"></activity>
-
+        <activity android:name=".DisplayBooks"></activity>
         <activity android:name=".MovieDescription" />
         <activity android:name=".TvSeries"></activity>
     </application>
