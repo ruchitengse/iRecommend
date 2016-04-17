@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.irecommend.DisplayBooks"
     android:weightSum="1"
-    android:background="@drawable/books">
+    android:background="@drawable/movies">
 
     <TextView
         android:textStyle="bold"

@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.irecommend">
 
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -11,10 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".SplashScreen"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -25,6 +26,14 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+        <activity android:name=".Home"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+        <activity android:name=".Recommendation"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+      <activity android:name=".gameDescription"></activity>
+        <activity android:name=".DisplayBooks"></activity>
+        <activity android:name=".MovieDescription" />
+        <activity android:name=".TvSeries"></activity>
 
         <activity android:name=".Home" />
         <activity android:name=".Recommendation" />
