@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.irecommend">
 
-
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -29,7 +28,6 @@
         <activity android:name=".Home"/>
         <activity android:name=".Recommendation" />
 
-        <activity android:name=".Recommendation" />
         <activity android:name=".MovieDescription" />
         <activity android:name=".TvSeries"></activity>
     </application>
