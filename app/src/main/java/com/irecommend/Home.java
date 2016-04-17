@@ -53,11 +53,8 @@ public class Home extends AppCompatActivity {
                 r_button = (RadioButton) findViewById(selectedId);
                 category = r_button.getText().toString();
                 searchData = searchItem.getText().toString();
-                if (category != "everything") {
-                    url = "https://www.tastekid.com/api/similar?q=" + searchData + "&k=219989-TasteKid-OY2OPP1B" + "&type=" + category+"&limit=10&info=1";
-                } else {
-                    url = "https://www.tastekid.com/api/similar?q=" + searchData + "k=219989-TasteKid-OY2OPP1B&limit=10&info=1";
-                }
+                url = "https://www.tastekid.com/api/similar?q=" + searchData + "&k=219989-TasteKid-OY2OPP1B" + "&type=" + category+"&limit=10&info=1";
+
 
                // URL url1 = new URL(url);
                 //URI uri = URI.create(url);
@@ -65,6 +62,7 @@ public class Home extends AppCompatActivity {
                   //      url, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), Recommendation.class);
                 intent.putExtra("url",url);
+                intent.putExtra("type",category);
                 startActivity(intent);
             }
         });
