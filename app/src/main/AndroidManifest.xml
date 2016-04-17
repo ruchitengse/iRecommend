@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.irecommend">
 
-
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -26,7 +25,9 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".Recommendation"></activity>
+        <activity android:name=".Recommendation" />
+        <activity android:name=".MovieDescription" />
+        <activity android:name=".TvSeries"></activity>
     </application>
 
 </manifest>

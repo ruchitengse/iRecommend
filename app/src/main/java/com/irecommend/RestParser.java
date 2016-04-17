@@ -8,6 +8,8 @@ import java.io.BufferedInputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -26,6 +28,34 @@ public abstract class RestParser {
             /** Set Request Properties **/
             urlConnection.setRequestProperty("Content-Type","application/json");
             urlConnection.setRequestProperty("Accept","application/json");
+
+            /** Set Method **/
+            urlConnection.setRequestMethod(requestMethod);
+            int statusCode = urlConnection.getResponseCode();
+
+            if(statusCode == 200){
+                inputStream = new BufferedInputStream(urlConnection.getInputStream());
+                return new JSONObject(getResponseText(inputStream));
+            }
+
+
+        } catch (Exception e){
+            Log.d("getResponseForUrl", e.getLocalizedMessage());
+        }
+        return  null;
+    }
+
+    public static JSONObject getResponseForUrlWithHeaders(String url, String requestMethod, HashMap<String, String> headers) {
+
+        InputStream inputStream = null;
+        HttpURLConnection urlConnection = null;
+        try {
+            URL urlToOpen = new URL(url);
+            urlConnection = (HttpURLConnection) urlToOpen.openConnection();
+
+            for(Map.Entry<String, String> entry: headers.entrySet()){
+                urlConnection.setRequestProperty(entry.getKey(), entry.getValue());
+            }
 
             /** Set Method **/
             urlConnection.setRequestMethod(requestMethod);
