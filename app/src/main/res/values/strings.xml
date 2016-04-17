@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">iRecommend</string>
+    <string name="title_activity_recommendation">Recommendation</string>
 </resources>

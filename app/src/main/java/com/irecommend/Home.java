@@ -3,12 +3,11 @@ import android.net.Uri;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-
+import android.widget.Toast;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -55,16 +54,17 @@ public class Home extends AppCompatActivity {
                 category = r_button.getText().toString();
                 searchData = searchItem.getText().toString();
                 if (category != "everything") {
-                    url = "https://www.tastekid.com/api/similar?q=" + searchData + "&k=219989-TasteKid-OY2OPP1B" + "&type=" + category;
+                    url = "https://www.tastekid.com/api/similar?q=" + searchData + "&k=219989-TasteKid-OY2OPP1B" + "&type=" + category+"&limit=10&info=1";
                 } else {
-                    url = "https://www.tastekid.com/api/similar?q=" + searchData + "k=219989-TasteKid-OY2OPP1B";
+                    url = "https://www.tastekid.com/api/similar?q=" + searchData + "k=219989-TasteKid-OY2OPP1B&limit=10&info=1";
                 }
 
                // URL url1 = new URL(url);
-                URI uri = URI.create(url);
+                //URI uri = URI.create(url);
                 //Toast.makeText(Home.this,
-                  //      uri.toString(), Toast.LENGTH_SHORT).show();
+                  //      url, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), Home.class);
+                intent.putExtra("url",url);
                 startActivity(intent);
             }
         });
