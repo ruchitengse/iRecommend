@@ -82,12 +82,12 @@ public class Recommendation extends Activity {
                         Intent intent = new Intent(Recommendation.this, TvSeries.class);
                         intent.putExtra("recName", recName);
                         startActivity(intent);
-                    } else if(type.equals("Books")){ //To Put
-                        Intent intent = new Intent(Recommendation.this, MovieDescription.class);
+                    } else if(type.equals("Books")){
+                        Intent intent = new Intent(Recommendation.this, DisplayBooks.class);
                         intent.putExtra("recName", recName);
                         startActivity(intent);
-                    } else if(type.equals("Authors")) { //To Put
-                        Intent intent = new Intent(Recommendation.this, MovieDescription.class);
+                    } else if(type.equals("Authors")) {
+                        Intent intent = new Intent(Recommendation.this, display_author.class);
                         intent.putExtra("recName", recName);
                         startActivity(intent);
                     } else if(type.equals("Games")){

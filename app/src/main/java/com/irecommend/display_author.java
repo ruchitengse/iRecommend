@@ -23,13 +23,20 @@ import org.json.JSONObject;
 public class display_author extends AppCompatActivity implements authorResponse{
     AuthorInfo author = new AuthorInfo();
 
+    Bundle extras;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_author);
 
-        String ApiCall = "https://www.tastekid.com/api/similar?q=sidney+sheldon&k=219989-TasteKid-OY2OPP1B&type=author&limit=10&info=1";
+        String authorName = null;
 
+        extras = getIntent().getExtras();
+        if(extras != null){
+            authorName = extras.getString("recName");
+            authorName = authorName.replaceAll(" ", "+");
+        }
+        String ApiCall = "https://www.tastekid.com/api/similar?q="+authorName+"&k=219989-TasteKid-OY2OPP1B&type=authors&limit=10&info=1";
         author.response=this;
         author.execute(ApiCall);
     }
