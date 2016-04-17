@@ -1,9 +1,13 @@
 package com.irecommend;
 
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONObject;
 
@@ -11,14 +15,24 @@ public class TvSeries extends AppCompatActivity implements FetchTvData {
 
     FetchTvSeries tvSeries = new FetchTvSeries();
     String url = "http://www.omdbapi.com/?y=&plot=short&r=json&type=series";
+    Bundle extras;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tv_series);
-        String seriesName = "friends";
+        extras = getIntent().getExtras();
+        String seriesName = null;
+        if(extras != null){
+            seriesName = extras.getString("recName");
+            seriesName = seriesName.replaceAll(" ", "+");
+        }
+//        seriesName = "friends";
+
         url += "&t="+seriesName;
         tvSeries.delegate = this;
         tvSeries.execute(url);
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_tv_series);
     }
 
     @Override
@@ -32,9 +46,21 @@ public class TvSeries extends AppCompatActivity implements FetchTvData {
             setLanguage(jsonObject.getString("Language"));
             setReleased(jsonObject.getString("Released"));
             setRated(jsonObject.getString("Rated"));
+            setImage(jsonObject.getString("Poster"));
         } catch(Exception e){
             e.printStackTrace();
         }
+    }
+
+    private void setImage(String poster) {
+
+        WebView displayImage = (WebView) findViewById(R.id.tvSeriesView);
+        displayImage.getSettings().setJavaScriptEnabled(true);
+        displayImage.getSettings().setLoadWithOverviewMode(true);
+        displayImage.getSettings().setUseWideViewPort(true);
+        displayImage.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
+        displayImage.setScrollbarFadingEnabled(true);
+        displayImage.loadDataWithBaseURL("http://ia.media-imdb.com", "<img src=\""+poster+"\" height=\"98%\" width=\"100%\"/>", "text/html", "utf-8", null);
     }
 
     private void setRated(String rated){

@@ -6,6 +6,8 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,18 +25,17 @@ public class MovieDescription extends AppCompatActivity implements MovieResponse
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_movie_description);
-
         extras = getIntent().getExtras();
         String movieName = null;
         if(extras != null){
             movieName = extras.getString("recName");
+            movieName = movieName.replaceAll(" ", "+");
         }
-
+//        movieName = "Titanic";
         movieData.delegate = this;
-        movieData.execute("http://www.omdbapi.com/?t="+movieName+"&y=&plot=short&r=json");
+        movieData.execute("http://www.omdbapi.com/?t="+movieName+"&y=&plot=short&r=json&type=movie");
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_movie_description);
     }
 
     @Override
@@ -47,12 +48,18 @@ public class MovieDescription extends AppCompatActivity implements MovieResponse
             setImdbRating(jsonObject.getString("imdbRating"));
             setActors(jsonObject.getString("Actors"));
             setPlot(jsonObject.getString("Plot"));
+            setRated(jsonObject.getString("Rated"));
             setLanguage(jsonObject.getString("Language"));
 
         }catch (Exception e){
             e.printStackTrace();
             throw new Exception();
         }
+    }
+
+    private void setRated(String rated) {
+        TextView movieRated = (TextView) findViewById(R.id.movieRated);
+        movieRated.setText("Language: " + rated);
     }
 
     private void setLanguage(String language){
@@ -67,7 +74,7 @@ public class MovieDescription extends AppCompatActivity implements MovieResponse
 
     private void setImdbRating(String imdbRating) {
         TextView imdbRatingView = (TextView)  findViewById(R.id.imdbRating);
-        imdbRatingView.setText(imdbRating);
+        imdbRatingView.setText("Imdb Rating: " + imdbRating);
     }
 
     private void setActors(String actors) {
@@ -91,47 +98,19 @@ public class MovieDescription extends AppCompatActivity implements MovieResponse
     }
 
     public void setImage(String posterLink){
-        Bitmap mIcon11 = null;
-        ImageView imageView = (ImageView) findViewById(R.id.movieImg);
-        try {
-            InputStream in = (InputStream) new java.net.URL("http://ia.media-imdb.com/images/M/MV5BMTMyNjk4Njc3NV5BMl5BanBnXkFtZTcwNDkyMTEzMw@@._V1_SX300.jpg").getContent();
-            mIcon11 = BitmapFactory.decodeStream(in);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        if(mIcon11 != null){
-            imageView.setImageBitmap(mIcon11);
-        } else {
-            Toast.makeText(MovieDescription.this, "Image does not exist", Toast.LENGTH_SHORT).show();
-        }
+
+        WebView displayImage = (WebView) findViewById(R.id.imgView);
+        displayImage.getSettings().setJavaScriptEnabled(true);
+        displayImage.getSettings().setLoadWithOverviewMode(true);
+        displayImage.getSettings().setUseWideViewPort(true);
+        displayImage.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
+        displayImage.setScrollbarFadingEnabled(true);
+        displayImage.loadDataWithBaseURL("http://ia.media-imdb.com", "<img src=\""+posterLink+"\" height=\"98%\" width=\"100%\"/>", "text/html", "utf-8", null);
     }
 
     
 }
 
-/**
- * {"Title":"The Devil Wears Prada",
- "Year":"2006",
- "Rated":"PG-13",
- "Released":"30 Jun 2006",
- "Runtime":"109 min",
- "Genre":"Comedy, Drama, Romance",
- "Director":"David Frankel",
- "Writer":"Aline Brosh McKenna (screenplay), Lauren Weisberger (novel)",
- "Actors":"Meryl Streep, Anne Hathaway, Emily Blunt, Stanley Tucci",
- "Plot":"A smart but sensible new graduate lands a job as an assistant to Miranda Priestly, the demanding editor-in-chief of a high fashion magazine.",
- "Language":"English, French",
- "Country":"USA, France",
- "Awards":"Nominated for 2 Oscars. Another 16 wins & 48 nominations.",
- "Poster":"http://ia.media-imdb.com/images/M/MV5BMTMyNjk4Njc3NV5BMl5BanBnXkFtZTcwNDkyMTEzMw@@._V1_SX300.jpg",
- "Metascore":"62",
- "imdbRating":"6.8",
- "imdbVotes":"275,
- 709",
- "imdbID":"tt0458352",
- "Type":"movie",
- "Response":"True"}
- */
 class MovieData extends AsyncTask<String, String, String> {
     //URI url = URI.create(uri);
 

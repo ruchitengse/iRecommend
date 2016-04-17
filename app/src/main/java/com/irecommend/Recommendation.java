@@ -71,24 +71,24 @@ public class Recommendation extends AppCompatActivity {
                     //Toast.makeText(Recommendation.this, lm[position], Toast.LENGTH_LONG).show();
                     recName = lm[position];
                     //Change second parameter
-                    if(type == "Movies") {
+                    if(type.equals("Movies")) {
                         Intent intent = new Intent(Recommendation.this, MovieDescription.class);
                         intent.putExtra("recName", recName);
                         startActivity(intent);
-                    } else if(type == "Shows"){
+                    } else if(type.equals("Shows")){
                         Intent intent = new Intent(Recommendation.this, TvSeries.class);
                         intent.putExtra("recName", recName);
                         startActivity(intent);
-                    } else if(type == "Books"){
+                    } else if(type.equals("Books")){ //To Put
                         Intent intent = new Intent(Recommendation.this, MovieDescription.class);
                         intent.putExtra("recName", recName);
                         startActivity(intent);
-                    } else if(type == "Authors") {
+                    } else if(type.equals("Authors")) { //To Put
                         Intent intent = new Intent(Recommendation.this, MovieDescription.class);
                         intent.putExtra("recName", recName);
                         startActivity(intent);
-                    } else if(type == "Games"){
-                        Intent intent = new Intent(Recommendation.this, MovieDescription.class);
+                    } else if(type.equals("Games")){
+                        Intent intent = new Intent(Recommendation.this, gameDescription.class);
                         intent.putExtra("recName", recName);
                         startActivity(intent);
                     }
@@ -101,7 +101,6 @@ public class Recommendation extends AppCompatActivity {
             String[] lm = new String[10];
 
             try{
-                System.out.println("Here");
                 JSONObject  jsonRootObject = jsonobj.getJSONObject("Similar");
                 //JSONArray similar =
                 //System.out.println(jsonRootObject);
@@ -116,9 +115,7 @@ public class Recommendation extends AppCompatActivity {
                     JSONObject item = arrays.getJSONObject(i);
                     name = item.getString("Name");
                     lm[i]=name;
-                    System.out.println(lm[i]);
                 }
-                System.out.println(lm);
 
             }
             catch(Exception e){
@@ -127,4 +124,3 @@ public class Recommendation extends AppCompatActivity {
 
             return lm;
         }}}
-
