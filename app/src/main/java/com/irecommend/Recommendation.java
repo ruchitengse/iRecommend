@@ -35,26 +35,31 @@ public class Recommendation extends AppCompatActivity {
             type = extras.getString("type");
         }
         Call call = new Call();
-        call.execute(uri);
+        call.execute(uri, type);
     }
 
     class Call extends AsyncTask<String, String, JSONObject> {
         //URI url = URI.create(uri);
         JSONObject jsonobj;
         String[] lm;
+        String type;
         String recName = null;
         @Override
         protected JSONObject doInBackground(String... arg0) {
 
             //System.out.println(jsonobj);
             jsonobj = RestParser.getResponseForUrl(arg0[0], "GET");
+            setType(arg0[1]);
 
             return jsonobj;
         }
 
+        public void setType(String type){
+            this.type = type;
+        }
+
         @Override
         protected void onPostExecute(JSONObject result){
-
 
             lm = JsonParser(result);
             ListView r_listView = (ListView) findViewById(R.id.listView);
@@ -66,12 +71,30 @@ public class Recommendation extends AppCompatActivity {
                     //Toast.makeText(Recommendation.this, lm[position], Toast.LENGTH_LONG).show();
                     recName = lm[position];
                     //Change second parameter
-                    Intent intent = new Intent(Recommendation.this, Home.class);
-                    intent.putExtra("recName",recName);
-                    startActivity(intent);
+                    if(type == "Movies") {
+                        Intent intent = new Intent(Recommendation.this, MovieDescription.class);
+                        intent.putExtra("recName", recName);
+                        startActivity(intent);
+                    } else if(type == "Shows"){
+                        Intent intent = new Intent(Recommendation.this, TvSeries.class);
+                        intent.putExtra("recName", recName);
+                        startActivity(intent);
+                    } else if(type == "Books"){
+                        Intent intent = new Intent(Recommendation.this, MovieDescription.class);
+                        intent.putExtra("recName", recName);
+                        startActivity(intent);
+                    } else if(type == "Authors") {
+                        Intent intent = new Intent(Recommendation.this, MovieDescription.class);
+                        intent.putExtra("recName", recName);
+                        startActivity(intent);
+                    } else if(type == "Games"){
+                        Intent intent = new Intent(Recommendation.this, MovieDescription.class);
+                        intent.putExtra("recName", recName);
+                        startActivity(intent);
+                    }
+
                 }
             });
-
         }
 
         private String[] JsonParser(JSONObject jsonobj){
