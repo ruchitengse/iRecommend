@@ -42,7 +42,6 @@ public class Recommendation extends Activity {
     }
 
     class Call extends AsyncTask<String, String, JSONObject> {
-        //URI url = URI.create(uri);
         JSONObject jsonobj;
         String[] lm;
         String type;
@@ -50,8 +49,7 @@ public class Recommendation extends Activity {
         @Override
         protected JSONObject doInBackground(String... arg0) {
 
-            //System.out.println(jsonobj);
-            jsonobj = RestParser.getResponseForUrl(arg0[0], "GET");
+           jsonobj = RestParser.getResponseForUrl(arg0[0], "GET");
             setType(arg0[1]);
 
             return jsonobj;
@@ -105,8 +103,6 @@ public class Recommendation extends Activity {
 
             try{
                 JSONObject  jsonRootObject = jsonobj.getJSONObject("Similar");
-                //JSONArray similar =
-                //System.out.println(jsonRootObject);
                 JSONArray arrays = jsonRootObject.getJSONArray("Results");
                 lm = new String[arrays.length()];
                 if(arrays.length()==0){
