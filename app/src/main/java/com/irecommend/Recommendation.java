@@ -128,7 +128,7 @@ public class Recommendation extends Activity {
 
             }
             catch(Exception e){
-                System.out.println("Catch:"+ e);
+                e.printStackTrace();
             }
 
             return lm;
